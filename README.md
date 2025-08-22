@@ -1,3 +1,31 @@
+<p align="center">
+  <a href="https://github.com" target="_blank">
+    <img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" width="150" alt="GitHub Logo">
+  </a>
+</p>
+
+<p align="center">
+  <!-- Stars -->
+  <a href="https://github.com/NguyenThoNhan/PTTKPM25-26_ClassNx_Nhom5/stargazers">
+    <img src="https://img.shields.io/github/stars/your-username/your-repo" alt="GitHub Stars">
+  </a>
+  
+  <!-- Forks -->
+  <a href="https://github.com/your-username/your-repo/fork">
+    <img src="https://img.shields.io/github/forks/your-username/your-repo" alt="GitHub Forks">
+  </a>
+  
+  <!-- Issues -->
+  <a href="https://github.com/your-username/your-repo/issues">
+    <img src="https://img.shields.io/github/issues/your-username/your-repo" alt="GitHub Issues">
+  </a>
+  
+  <!-- License -->
+  <a href="https://github.com/your-username/your-repo/blob/main/LICENSE">
+    <img src="https://img.shields.io/github/license/your-username/your-repo" alt="License">
+  </a>
+</p>
+
 # ✍️ Project EduSign: Hệ Thống Quản Lý & Phê Duyệt Luận Văn Tốt Nghiệp
 
 Một dự án ứng dụng web được xây dựng với **Node.js (Express.js)** và **MySQL**, mô phỏng một hệ sinh thái quản lý học thuật toàn diện. Dự án áp dụng các công nghệ hiện đại như **Chữ ký số** để đảm bảo tính pháp lý và **Xác thực Sinh trắc học** để nâng cao bảo mật.
@@ -24,42 +52,33 @@ Một dự án ứng dụng web được xây dựng với **Node.js (Express.js
 Bên cạnh đó, dự án tập trung vào việc xây dựng một trải nghiệm người dùng liền mạch và an toàn. **EduSign** tích hợp phương thức xác thực sinh trắc học hiện đại (WebAuthn API), mang lại một lớp bảo mật mạnh mẽ nhưng vẫn thân thiện với người dùng. Với các tính năng hỗ trợ như kênh thảo luận trực tiếp, thư viện tham khảo và công cụ gợi ý đề tài bằng AI, EduSign hướng tới mục tiêu trở thành một nền tảng quản lý luận văn toàn diện, minh bạch và hiệu quả.
 
 ---
-## ✨ Tính năng Nổi bật (Key Features)
-✍️ Chữ ký số (Digital Signature): Đảm bảo tính toàn vẹn, xác thực và chống chối bỏ cho các quy trình phê duyệt đề cương và chấm điểm.
-👤 Xác thực Sinh trắc học (Biometric Authentication): Tùy chọn đăng nhập an toàn, hiện đại bằng vân tay hoặc khuôn mặt thông qua API WebAuthn.
-💬 Không gian Thảo luận (Collaboration Hub): Kênh trao đổi trực tiếp giữa sinh viên và giảng viên cho từng dự án luận văn.
-📚 Thư viện Luận văn (Thesis Library): Kho tài liệu tham khảo với chức năng tìm kiếm và lọc nâng cao.
-🤖 Hỗ trợ AI (AI-Powered Assistance): Công cụ gợi ý đề tài và cung cấp các mẫu luận văn (templates) chuẩn.
-📊 Dashboard Quản trị (Admin Dashboard): Giao diện báo cáo trực quan, giúp Admin theo dõi tiến độ và quản lý hệ thống hiệu quả.
-
----
 ## 📋 Tài liệu Mô tả Yêu cầu Hệ thống (System Requirements Document - SRD)
 ### I. Yêu cầu Chức năng (Functional Requirements)
 👤 **Account & Security Management**
-Đăng ký/nhập đa vai trò (Student, Lecturer, Admin), hỗ trợ xác thực sinh trắc học.
-Quản lý hồ sơ cá nhân và tự động tạo/bảo vệ cặp khóa (Public/Private Key) cho việc ký số.
+- Đăng ký/nhập đa vai trò (Student, Lecturer, Admin), hỗ trợ xác thực sinh trắc học.
+- Quản lý hồ sơ cá nhân và tự động tạo/bảo vệ cặp khóa (Public/Private Key) cho việc ký số.
 ✍️ **Core Thesis Workflow**
-Quy trình nộp luận văn nhiều giai đoạn (đề cương, bản thảo, bản cuối).
-Giảng viên nhận xét, phê duyệt và chấm điểm bằng Chữ ký số để đảm bảo tính pháp lý và toàn vẹn.
-Theo dõi trạng thái và lịch sử phê duyệt của luận văn một cách minh bạch.
+- Quy trình nộp luận văn nhiều giai đoạn (đề cương, bản thảo, bản cuối).
+- Giảng viên nhận xét, phê duyệt và chấm điểm bằng Chữ ký số để đảm bảo tính pháp lý và toàn vẹn.
+- Theo dõi trạng thái và lịch sử phê duyệt của luận văn một cách minh bạch.
 💬 **Interaction & Support Features**
-Kênh thảo luận riêng cho từng dự án, thư viện tham khảo với bộ lọc nâng cao.
-Hỗ trợ sinh viên bằng công cụ gợi ý đề tài (AI) và các mẫu luận văn (templates) có sẵn.
+- Kênh thảo luận riêng cho từng dự án, thư viện tham khảo với bộ lọc nâng cao.
+- Hỗ trợ sinh viên bằng công cụ gợi ý đề tài (AI) và các mẫu luận văn (templates) có sẵn.
 👑 **Administration & Reporting**
-Dashboard trực quan hiển thị các số liệu thống kê quan trọng cho Admin.
-Quản lý toàn diện (CRUD) tài khoản người dùng và các luận văn trong thư viện.
+- Dashboard trực quan hiển thị các số liệu thống kê quan trọng cho Admin.
+- Quản lý toàn diện (CRUD) tài khoản người dùng và các luận văn trong thư viện.
 ### II. Yêu cầu Phi chức năng (Non-Functional Requirements)
-🔒 **Security**: Mã hóa toàn diện từ dữ liệu truyền tải (HTTPS) đến lưu trữ (hashed passwords, encrypted keys).
-⚡ **Performance**: Phản hồi nhanh (<2s) và xử lý hiệu quả các tệp tin lớn.
-✨ **Usability**: Giao diện trực quan, thân thiện và tương thích trên nhiều thiết bị (responsive).
-🛡️ **Data Integrity**: Đảm bảo tính toàn vẹn của file gốc và các quyết định phê duyệt qua hashing và chữ ký số
+- 🔒 **Security**: Mã hóa toàn diện từ dữ liệu truyền tải (HTTPS) đến lưu trữ (hashed passwords, encrypted keys).
+- ⚡ **Performance**: Phản hồi nhanh (<2s) và xử lý hiệu quả các tệp tin lớn.
+- ✨ **Usability**: Giao diện trực quan, thân thiện và tương thích trên nhiều thiết bị (responsive).
+- 🛡️ **Data Integrity**: Đảm bảo tính toàn vẹn của file gốc và các quyết định phê duyệt qua hashing và chữ ký số
 
 ---
 ## 👥 Actors & Use Cases
 Actors (Các Tác nhân)
-🎓 Sinh viên (Student): Người dùng chính, thực hiện luận văn và tương tác với giảng viên.
-👨‍🏫 Giảng viên (Lecturer): Người hướng dẫn, phản biện, có trách nhiệm nhận xét, phê duyệt và chấm điểm luận văn.
-👑 Admin (Administrator): Quản trị viên hệ thống (ví dụ: Trưởng bộ môn), có quyền quản lý toàn bộ người dùng, dữ liệu và quy trình.
+- 🎓 Sinh viên (Student): Người dùng chính, thực hiện luận văn và tương tác với giảng viên.
+- 👨‍🏫 Giảng viên (Lecturer): Người hướng dẫn, phản biện, có trách nhiệm nhận xét, phê duyệt và chấm điểm luận văn.
+- 👑 Admin (Administrator): Quản trị viên hệ thống (ví dụ: Trưởng bộ môn), có quyền quản lý toàn bộ người dùng, dữ liệu và quy trình.
 ## Use Case List
 ### 🎓 For Students:
 - 📝 Nộp đề cương luận văn (Submit Proposal)
