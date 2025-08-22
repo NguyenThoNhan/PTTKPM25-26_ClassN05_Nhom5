@@ -41,7 +41,7 @@ Một dự án ứng dụng web được xây dựng với **Node.js (Express.js
 | :---: | :--- | :---: | :--- |
 | 1 | Nguyễn Thọ Nhân | 23010786 | Team Leader, Backend Developer |
 | 2 | Nguyễn Xuân Chức| 23010452| Frontend Developer, UI/UX Designer |
-| 3 | _(Điền tên thành viên 3)_ | _(Điền MSV 3)_ | Business Analyst, Tester |
+| 3 | Phạm Anh Thái | 23010784 | Business Analyst, Tester |
 
 ---
 
