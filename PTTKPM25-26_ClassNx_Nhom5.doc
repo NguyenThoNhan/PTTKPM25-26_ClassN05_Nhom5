@@ -1,0 +1,41 @@
+Quy trình Chữ ký số (The Core Logic)
+  
+-------------------------------------------------------------------------------------
+  
+Kịch bản 1: Phê duyệt ĐỀ CƯƠNG (Giữa Sinh viên và Giảng viên)
+Mục tiêu ở đây là tạo ra một bằng chứng số không thể chối cãi rằng Giảng viên An đã đồng ý với kế hoạch do Sinh viên A đưa ra.
+Bước 1: Sinh viên Nộp Đề cương
+Sinh viên A: Nộp file DeCuong.pdf.
+Bước 2: Giảng viên An Ký duyệt
+Giảng viên An: Đọc đề cương, đồng ý và nhấn nút "Phê duyệt và Ký số".
+Hệ thống (phía GV An):
+Tạo "Dấu vân tay" (Hash_DeCuong) từ nội dung file DeCuong.pdf.
+Dùng Khóa Bí mật của Giảng viên An để "khóa" dấu vân tay này.
+Lưu lại Chu_Ky_So_DeCuong và cập nhật trạng thái luận văn.
+Bước 3: Hệ thống Ghi nhận và Hiển thị
+Hệ thống: Tự động xác thực chữ ký vừa tạo là hợp lệ.
+Kết quả hiển thị: Trên giao diện của cả Sinh viên, Giảng viên và Admin, trạng thái của luận văn giờ là "Đã phê duyệt đề cương" kèm theo một dấu tick xanh ✅ đáng tin cậy.
+➡️ Kết luận: Giờ đây, chữ ký số đã trở thành một bằng chứng được lưu trữ vĩnh viễn. Sinh viên có thể yên tâm làm theo kế hoạch. Admin không cần can thiệp, nhưng nếu sau này có bất kỳ tranh chấp nào, Admin có thể vào hệ thống và truy xuất chữ ký này để xác minh lại một cách dễ dàng.
+----------------------------------------------------------------------------------------
+  
+Kịch bản 2: Chấm điểm LUẬN VĂN (Có sự giám sát của Admin)
+Mục tiêu ở đây là để Admin có thể kiểm tra chéo và xác thực kết quả cuối cùng một cách toàn diện, đảm bảo không có bất kỳ sai sót hay gian lận nào.
+Bước 1: Sinh viên Nộp bài & Hệ thống "Niêm phong"
+Sinh viên A: Nộp file cuối cùng LuanVan_HoanChinh.pdf.
+Hệ thống: NGAY LẬP TỨC tạo ra một Mã niêm phong (hash) từ file này và lưu lại. Đây là bằng chứng cho bản gốc.
+Bước 2: Giảng viên An Chấm điểm và Ký
+Giảng viên An: Cho điểm 8.5, viết nhận xét và nhấn "Chấm điểm và Ký số".
+Hệ thống (phía GV An):
+Tạo một "Gói dữ liệu" gồm: Mã niêm phong (lấy từ Bước 1) + Điểm 8.5 + Nhận xét.
+Tạo "Dấu vân tay" của toàn bộ "Gói dữ liệu" này.
+Dùng Khóa Bí mật của Giảng viên An để ký lên đó.
+Bước 3: Admin Thực hiện "Kiểm tra Kép"
+Admin: Đăng nhập để tổng hợp điểm hoặc thanh tra. Khi xem kết quả của Sinh viên A, hệ thống sẽ tự động thực hiện 2 lần kiểm tra:
+✅ Kiểm tra 1: Điểm có đúng của Giảng viên không?
+Hệ thống dùng Khóa Công khai của GV An để xác thực chữ ký trên "Gói dữ liệu".
+Kết quả: Xác nhận điểm 8.5 là toàn vẹn và do chính GV An đưa ra.
+✅ Kiểm tra 2: Bài làm có đúng bản gốc không?
+Hệ thống tính lại "dấu vân tay" của file luận văn hiện tại.
+Nó so sánh với Mã niêm phong gốc đã lưu ở Bước 1.
+Kết quả: Xác nhận bài làm không bị ai tráo đổi sau khi sinh viên nộp.
+➡️ Kết luận: Admin có thể hoàn toàn tin tưởng và xác nhận kết quả cuối cùng, vì cả điểm số và bài làm đều đã được xác thực một cách độc lập và chặt chẽ.
