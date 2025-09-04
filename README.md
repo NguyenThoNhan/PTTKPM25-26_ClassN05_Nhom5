@@ -106,7 +106,7 @@ Actors (Các Tác nhân)
 
 Biểu đồ Lớp của hệ thống EduSign:
 
-![Class Diagram](design/db/Sơđồlove.jpg).
+![Class Diagram](design/db/sơ đồ love.jpg).
 
 
 ## 🛠️ Công nghệ Sử dụng (Technology Stack)
