@@ -101,6 +101,11 @@ Actors (Các Tác nhân)
 - 🔄 Phân công giảng viên (Assign Lecturers)
 - 📚 Quản lý thư viện luận văn (Manage Library - CRUD)
 - 📜 Theo dõi lịch sử hệ thống (View Audit Trail)
+### a. 🧠 Usecase
+
+Sơ đồ usecase
+
+![Class Diagram](design/db/usecase.jpg).
 
 ### c. 🧠 Class Diagram
 
