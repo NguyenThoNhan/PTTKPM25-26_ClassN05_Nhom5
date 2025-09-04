@@ -102,6 +102,13 @@ Actors (Các Tác nhân)
 - 📚 Quản lý thư viện luận văn (Manage Library - CRUD)
 - 📜 Theo dõi lịch sử hệ thống (View Audit Trail)
 
+### c. 🧠 Class Diagram
+
+Biểu đồ Lớp của hệ thống EduSign:
+
+![Class Diagram](design/db/Sơđồlove.jpg).
+
+
 ## 🛠️ Công nghệ Sử dụng (Technology Stack)
 ![alt text](https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white)
 ![alt text](https://img.shields.io/badge/Express.js-000000?style=for-the-badge&logo=express&logoColor=white)
