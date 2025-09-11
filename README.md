@@ -113,6 +113,10 @@ Biểu đồ Lớp của hệ thống EduSign:
 
 ![Class Diagram](design/db/sodolop.jpg).
 
+### d.Sơ đồ tuần tự
+
+![Class Diagram](design/db/sodotuantu.jpg).
+
 
 ## 🛠️ Công nghệ Sử dụng (Technology Stack)
 ![alt text](https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white)
