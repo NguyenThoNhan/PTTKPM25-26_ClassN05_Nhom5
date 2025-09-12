@@ -34,6 +34,7 @@ Một dự án ứng dụng web được xây dựng với **Node.js (Express.js
 | :--- | :--- |
 | **Nhóm:** | **05** |
 | **Giảng viên Hướng dẫn:** | ThS. Vũ Quang Dũng |
+| **Giảng viên Hướng dẫn:** | Ths. Nguyễn Xuân Quế |
 
 ### **Thành viên Nhóm (Team Members)**
 
@@ -42,7 +43,7 @@ Một dự án ứng dụng web được xây dựng với **Node.js (Express.js
 | 1 | Nguyễn Thọ Nhân | 23010786 | Team Leader, Backend Developer |
 | 2 | Nguyễn Xuân Chức| 23010452| Frontend Developer, UI/UX Designer |
 | 3 | Phạm Anh Thái | 23010784 | Business Analyst, Tester |
-
+| 4 | Lê Tuấn Anh | 21011577 | Database Engineer, DevOps |
 ---
 
 ## 🚀 Giới Thiệu Dự Án (Project Introduction)
@@ -100,6 +101,22 @@ Actors (Các Tác nhân)
 - 🔄 Phân công giảng viên (Assign Lecturers)
 - 📚 Quản lý thư viện luận văn (Manage Library - CRUD)
 - 📜 Theo dõi lịch sử hệ thống (View Audit Trail)
+### a. 🧠 Usecase
+
+Sơ đồ usecase
+
+![Class Diagram](design/db/usecase.jpg).
+
+### c. 🧠 Class Diagram
+
+Biểu đồ Lớp của hệ thống EduSign:
+
+![Class Diagram](design/db/sodolop.jpg).
+
+### d.Sơ đồ tuần tự
+
+![Class Diagram](design/db/sodotuantu.jpg).
+
 
 ## 🛠️ Công nghệ Sử dụng (Technology Stack)
 ![alt text](https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white)
