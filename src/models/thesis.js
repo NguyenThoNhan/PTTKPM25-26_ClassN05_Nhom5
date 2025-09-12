@@ -1,0 +1,30 @@
+'use strict';
+const {
+  Model
+} = require('sequelize');
+module.exports = (sequelize, DataTypes) => {
+  class Thesis extends Model {
+    /**
+     * Helper method for defining associations.
+     * This method is not a part of Sequelize lifecycle.
+     * The `models/index` file will call this method automatically.
+     */
+    static associate(models) {
+      // define association here
+      Thesis.belongsTo(models.User, { foreignKey: 'studentId' });
+      Thesis.hasMany(models.ThesisVersion, { foreignKey: 'thesisId' });
+      // Tạm thời chưa cần liên kết với giảng viên, sẽ làm ở Giai đoạn 3
+    }
+  }
+  Thesis.init({
+    title: DataTypes.STRING,
+    description: DataTypes.TEXT,
+    status: DataTypes.STRING,
+    studentId: DataTypes.INTEGER,
+    lecturerId: DataTypes.INTEGER
+  }, {
+    sequelize,
+    modelName: 'Thesis',
+  });
+  return Thesis;
+};
