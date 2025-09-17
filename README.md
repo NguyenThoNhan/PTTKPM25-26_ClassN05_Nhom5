@@ -75,48 +75,66 @@ Bên cạnh đó, dự án tập trung vào việc xây dựng một trải nghi
 - 🛡️ **Data Integrity**: Đảm bảo tính toàn vẹn của file gốc và các quyết định phê duyệt qua hashing và chữ ký số
 
 ---
-## 👥 Actors & Use Cases
-Actors (Các Tác nhân)
-- 🎓 Sinh viên (Student): Người dùng chính, thực hiện luận văn và tương tác với giảng viên.
-- 👨‍🏫 Giảng viên (Lecturer): Người hướng dẫn, phản biện, có trách nhiệm nhận xét, phê duyệt và chấm điểm luận văn.
-- 👑 Admin (Administrator): Quản trị viên hệ thống (ví dụ: Trưởng bộ môn), có quyền quản lý toàn bộ người dùng, dữ liệu và quy trình.
-## Use Case List
-### 🎓 For Students:
-- 📝 Nộp đề cương luận văn (Submit Proposal)
-- 📂 Nộp các bản thảo (Submit Drafts)
-- 📈 Theo dõi trạng thái (Track Thesis Status)
-- 💬 Thảo luận với Giảng viên (Discuss with Lecturer)
-- 🔍 Tìm kiếm luận văn tham khảo (Search in Library)
-- 🤖 Nhận gợi ý đề tài từ AI (Get AI Suggestions)
-- 📄 Tải mẫu luận văn (Download Templates)
-### 👨‍🏫 For Lecturers:
-- 📋 Xem danh sách sinh viên (View Assigned Students)
-- 📥 Tải và xem luận văn (Download & View Thesis)
-- 🗣️ Gửi nhận xét (Provide Feedback)
-- ✍️ Ký số phê duyệt đề cương (Digitally Sign Proposal Approval)
-- 💯 Ký số chấm điểm cuối cùng (Digitally Sign Final Grade)
-### 👑 For Admins:
-- 📊 Xem Dashboard báo cáo (View Dashboard)
-- 👤 Quản lý người dùng (Manage Users - CRUD)
-- 🔄 Phân công giảng viên (Assign Lecturers)
-- 📚 Quản lý thư viện luận văn (Manage Library - CRUD)
-- 📜 Theo dõi lịch sử hệ thống (View Audit Trail)
-### a. 🧠 Usecase
+## 📊 Sơ Đồ Thiết kế Hệ thống (System Design Diagrams)
 
-Sơ đồ usecase
+Phần này trực quan hóa kiến trúc và luồng hoạt động của dự án EduSign thông qua các biểu đồ UML.
+
+### a. 🧠 Sơ đồ Usecase (Usecase Diagram)
+
+Sơ đồ thể hiện các tác nhân (Actors) và các chức năng chính họ có thể thực hiện trên hệ thống EduSign.
 
 ![Class Diagram](design/db/usecase.jpg).
 
-### c. 🧠 Class Diagram
+*Sơ đồ minh họa sự tương tác của Sinh viên, Giảng viên, và Admin với các chức năng cốt lõi như Nộp bài, Ký số, và Quản lý hệ thống.*
 
-Biểu đồ Lớp của hệ thống EduSign:
+---
+
+### 🏗️ Sơ Đồ Cấu Trúc (Class Diagram)
+
+Biểu đồ Lớp mô tả cấu trúc dữ liệu và các đối tượng chính của hệ thống.
 
 ![Class Diagram](design/db/sodolop.jpg).
 
-### d.Sơ đồ tuần tự
+*Sơ đồ minh họa các đối tượng chính (`User`, `Thesis`, `Signature`, `Comment`) và các mối quan hệ giữa chúng (One-to-Many, Many-to-Many).*
+
+---
+
+### ⚙️ Sơ Đồ Thuật Toán (Activity Diagram)
+
+Sơ đồ này mô tả chi tiết luồng công việc (workflow) của chức năng quan trọng nhất: Ký chấm luận văn và Xác thực.
 
 ![Class Diagram](design/db/sodotuantu.jpg).
 
+*Sơ đồ thể hiện các bước từ khi Sinh viên nộp bài, Giảng viên thực hiện ký số, cho đến khi Admin vào xác thực kết quả cuối cùng.*
+
+---
+
+## 💻 Biểu đồ trạng thái
+
+Biểu đồ này mô tả vòng đời và các trạng thái mà một đối tượng `Thesis` (Luận văn) có thể trải qua.
+
+![Class Diagram](design/db/bieudotrangthai.png).
+
+*Sơ đồ minh họa quá trình chuyển đổi trạng thái của một luận văn, từ lúc "Chờ duyệt Đề cương" cho đến khi "Đã hoàn thành" hoặc "Đã hủy".*
+
+---
+
+## 📸 Ảnh Chụp Màn Hình Chức Năng Chính
+
+| Trang Đăng nhập & Xác thực Sinh trắc học | Dashboard Sinh viên & Tiến độ Luận văn |
+| :------------------------------: | :----------------------------------: |
+| **![UI](design/ui/a1.png)**         | **![UI](design/ui/a4.png)**    |
+| **Giao diện Chấm điểm của Giảng viên**              | **Dashboard Quản Trị của Admin**   |
+| **![UI](design/ui/a2.png)**         | **![UI](design/ui/a5.png)**        |
+| **Luồng Thảo luận & Phản hồi**     | **Xem Lịch sử & Xác thực Chữ ký số**     |
+| **![UI](design/ui/a3.png)**         | **![UI](design/ui/a6.png)**         |
+
+---
+
+### 🔗 Liên Kết
+- Link Repository: [https://github.com/NguyenThoNhan/PTTKPM25-26_ClassN05_Nhom5]
+- Link Deploy: [https://edusign-app.onrender.com]
+- Link Readme.io: [https://nguyenthonhan.github.io/edusign_readme/]
 
 ## 🛠️ Công nghệ Sử dụng (Technology Stack)
 ![alt text](https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white)
