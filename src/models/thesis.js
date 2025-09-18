@@ -10,9 +10,16 @@ module.exports = (sequelize, DataTypes) => {
      * The `models/index` file will call this method automatically.
      */
     static associate(models) {
+
       Thesis.belongsTo(models.User, { as: 'Student', foreignKey: 'studentId' });
       Thesis.belongsTo(models.User, { as: 'Lecturer', foreignKey: 'lecturerId' }); // Quan hệ mới
       Thesis.hasMany(models.ThesisVersion, { foreignKey: 'thesisId' });
+
+      // define association here
+      Thesis.belongsTo(models.User, { foreignKey: 'studentId' });
+      Thesis.hasMany(models.ThesisVersion, { foreignKey: 'thesisId' });
+      // Tạm thời chưa cần liên kết với giảng viên, sẽ làm ở Giai đoạn 3
+
     }
   }
   Thesis.init({

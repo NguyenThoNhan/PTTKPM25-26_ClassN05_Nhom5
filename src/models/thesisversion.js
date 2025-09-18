@@ -12,7 +12,9 @@ module.exports = (sequelize, DataTypes) => {
     static associate(models) {
       // define association here
       ThesisVersion.belongsTo(models.Thesis, { foreignKey: 'thesisId' });
+
       ThesisVersion.hasOne(models.Approval, { foreignKey: 'thesisVersionId' }); // Quan hệ mới
+
     }
   }
   ThesisVersion.init({
