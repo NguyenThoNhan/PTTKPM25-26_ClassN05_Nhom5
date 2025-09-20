@@ -1,0 +1,88 @@
+<!-- src/views/dashboard-lecturer.html -->
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bảng điều khiển Giảng viên - EduSign</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="dashboard-layout">
+        <!-- ===== SIDEBAR ===== -->
+        <nav class="sidebar">
+            <div class="sidebar-header">
+                <h3><i class="fas fa-signature"></i> EduSign</h3>
+            </div>
+            <ul class="sidebar-menu">
+                <li class="active"><a href="#"><i class="fas fa-tachometer-alt"></i> Tổng quan</a></li>
+                <li><a href="#"><i class="fas fa-users"></i> Sinh viên hướng dẫn</a></li>
+                <li><a href="#"><i class="fas fa-check-double"></i> Lịch sử phê duyệt</a></li>
+                <li><a href="#"><i class="fas fa-user-circle"></i> Hồ sơ cá nhân</a></li>
+            </ul>
+            <div class="sidebar-footer">
+                <button id="logoutButton"><i class="fas fa-sign-out-alt"></i> Đăng xuất</button>
+            </div>
+        </nav>
+
+        <!-- ===== MAIN CONTENT ===== -->
+        <main class="main-content">
+            <!-- ===== HEADER ===== -->
+            <header class="header">
+                <div class="header-search">
+                    <i class="fas fa-search"></i>
+                    <input type="text" placeholder="Tìm kiếm sinh viên, luận văn...">
+                </div>
+                <div class="header-user">
+                    <div class="user-info">
+                        <span id="userFullName">Đang tải...</span>
+                        <small id="userRole">Giảng viên</small>
+                    </div>
+                    <img src="/images/avatar.png" alt="User Avatar" class="user-avatar">
+                </div>
+            </header>
+
+            <!-- ===== PAGE CONTENT ===== -->
+            <div class="page-content">
+                <section class="thesis-management">
+                    <div class="section-header">
+                        <h2><i class="fas fa-folder-open"></i> Luận văn cần xử lý</h2>
+                    </div>
+                    <div id="thesis-list-container" class="lecturer-thesis-list">
+                        <!-- Danh sách luận văn sẽ được chèn vào đây bởi JavaScript -->
+                        <p>Đang tải danh sách luận văn được phân công...</p>
+                    </div>
+                </section>
+            </div>
+        </main>
+    </div>
+
+    <!-- ===== MODAL: CHI TIẾT LUẬN VĂN & PHÊ DUYỆT ===== -->
+    <div id="thesisDetailsModal" class="modal">
+        <div class="modal-content modal-lg">
+            <span class="close-btn" id="closeDetailsModalBtn">&times;</span>
+            <h2 id="detailsThesisTitle">Chi tiết luận văn</h2>
+            <div class="thesis-details-grid">
+                <!-- Cột thông tin -->
+                <div class="thesis-info">
+                    <h4>Thông tin chung</h4>
+                    <p><strong>Sinh viên:</strong> <span id="detailsStudentName"></span></p>
+                    <p><strong>Email SV:</strong> <span id="detailsStudentEmail"></span></p>
+                    <p><strong>Trạng thái luận văn:</strong> <span id="detailsThesisStatus" class="status-badge"></span></p>
+                </div>
+                <!-- Cột các phiên bản cần duyệt -->
+                <div class="thesis-versions">
+                    <h4>Các phiên bản đã nộp</h4>
+                    <div id="version-list-container">
+                        <!-- Danh sách phiên bản sẽ được chèn vào đây -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="/js/dashboard-lecturer.js"></script>
+</body>
+</html>
+
