@@ -6,6 +6,7 @@ namespace App\Listeners;
 use App\Events\BookReturned;
 use App\Models\User;
 use App\Models\Badge;
+use App\Services\NotificationService;
 use Illuminate\Contracts\Queue\ShouldQueue; // Để xử lý tác vụ dưới nền (tùy chọn nâng cao)
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Events\Dispatcher;
@@ -29,11 +30,33 @@ class GamificationSubscriber
         try {
             $user = $event->loan->user;
 
-            // 1. Cộng điểm kinh nghiệm
-            $user->increment('experience_points', self::POINTS_PER_RETURN);
+            // 1. Cập nhật reading streak
+            $user->updateReadingStreak();
 
-            // 2. Kiểm tra và trao huy hiệu
+            // 2. Cộng điểm kinh nghiệm và kiểm tra level up
+            $levelUp = $user->addExperience(self::POINTS_PER_RETURN);
+
+            // 3. Cập nhật total books read
+            $user->increment('total_books_read');
+
+            // 4. Cập nhật daily challenge progress
+            $user->updateDailyChallenge('read_book');
+
+            // 5. Kiểm tra và trao huy hiệu
             $this->checkAndAwardBadges($user);
+
+            // 6. Log level up if occurred
+            if ($levelUp) {
+                Log::info('User leveled up!', [
+                    'user_id' => $user->id,
+                    'new_level' => $user->level,
+                    'experience_points' => $user->experience_points
+                ]);
+                
+                // Send level up notification
+                $notificationService = new NotificationService();
+                $notificationService->sendLevelUpNotification($user, $user->level);
+            }
 
         } catch (\Exception $e) {
             // Ghi lại lỗi nếu có vấn đề xảy ra trong quá trình xử lý gamification
@@ -52,33 +75,96 @@ class GamificationSubscriber
      */
     private function checkAndAwardBadges(User $user): void
     {
-        // Lấy số sách đã trả thành công của user
-        // Chúng ta có thể cache kết quả này để tối ưu performance sau này
+        // Lấy thống kê của user
         $returnedBooksCount = $user->loans()->where('status', 'returned')->count();
+        $reviewCount = $user->reviews()->count();
+        $currentStreak = $user->reading_streak;
+        $maxStreak = $user->max_reading_streak;
+        $level = $user->level;
 
         // Lấy danh sách ID các huy hiệu mà user đã có để tránh truy vấn lại
         $currentUserBadgeIds = $user->badges()->pluck('badges.id');
 
         // Huy hiệu "Tân Binh" (mượn sách đầu tiên)
         if ($returnedBooksCount >= 1) {
-            $badge = Badge::where('name', 'Tân Binh')->first();
-            if ($badge && !$currentUserBadgeIds->contains($badge->id)) {
-                $user->badges()->attach($badge->id);
-            }
+            $this->awardBadge($user, 'Tân Binh', $currentUserBadgeIds);
         }
 
         // Huy hiệu "Độc Giả Chăm Chỉ" (mượn 5 cuốn)
         if ($returnedBooksCount >= 5) {
-            $badge = Badge::where('name', 'Độc Giả Chăm Chỉ')->first();
-            if ($badge && !$currentUserBadgeIds->contains($badge->id)) {
-                $user->badges()->attach($badge->id);
-            }
+            $this->awardBadge($user, 'Độc Giả Chăm Chỉ', $currentUserBadgeIds);
         }
+
+        // Huy hiệu "Thư Viện Gia" (mượn 20 cuốn)
+        if ($returnedBooksCount >= 20) {
+            $this->awardBadge($user, 'Thư Viện Gia', $currentUserBadgeIds);
+        }
+
+        // Huy hiệu "Nhà Phê Bình" (viết 3 reviews)
+        if ($reviewCount >= 3) {
+            $this->awardBadge($user, 'Nhà Phê Bình', $currentUserBadgeIds);
+        }
+
+        // Huy hiệu "Chuyên Gia Đánh Giá" (viết 10 reviews)
+        if ($reviewCount >= 10) {
+            $this->awardBadge($user, 'Chuyên Gia Đánh Giá', $currentUserBadgeIds);
+        }
+
+        // Huy hiệu "Streak Master" (chuỗi đọc 7 ngày)
+        if ($currentStreak >= 7) {
+            $this->awardBadge($user, 'Streak Master', $currentUserBadgeIds);
+        }
+
+        // Huy hiệu "Fire Streak" (chuỗi đọc 30 ngày)
+        if ($currentStreak >= 30) {
+            $this->awardBadge($user, 'Fire Streak', $currentUserBadgeIds);
+        }
+
+        // Huy hiệu "Legendary Reader" (chuỗi đọc 100 ngày)
+        if ($maxStreak >= 100) {
+            $this->awardBadge($user, 'Legendary Reader', $currentUserBadgeIds);
+        }
+
+        // Huy hiệu "Level Up" (đạt level 5)
+        if ($level >= 5) {
+            $this->awardBadge($user, 'Level Up', $currentUserBadgeIds);
+        }
+
+        // Huy hiệu "Master Reader" (đạt level 10)
+        if ($level >= 10) {
+            $this->awardBadge($user, 'Master Reader', $currentUserBadgeIds);
+        }
+
+        // Huy hiệu "Digital Signature Expert" (mượn 5 tài liệu online)
+        $onlineBooksCount = $user->loans()->whereHas('book', function($query) {
+            $query->where('type', 'online');
+        })->where('status', 'returned')->count();
         
-        // Thêm các điều kiện huy hiệu khác ở đây...
-        // Ví dụ: Huy hiệu "Nhà Phê Bình" khi viết 3 reviews
-        // $reviewCount = $user->reviews()->count();
-        // if ($reviewCount >= 3) { ... }
+        if ($onlineBooksCount >= 5) {
+            $this->awardBadge($user, 'Digital Signature Expert', $currentUserBadgeIds);
+        }
+    }
+
+    /**
+     * Award a badge to user if not already owned
+     */
+    private function awardBadge(User $user, string $badgeName, $currentUserBadgeIds): void
+    {
+        $badge = Badge::where('name', $badgeName)->first();
+        if ($badge && !$currentUserBadgeIds->contains($badge->id)) {
+            $user->badges()->attach($badge->id);
+            
+            // Log badge award
+            Log::info('Badge awarded to user', [
+                'user_id' => $user->id,
+                'badge_name' => $badgeName,
+                'badge_id' => $badge->id
+            ]);
+            
+            // Send badge earned notification
+            $notificationService = new NotificationService();
+            $notificationService->sendBadgeEarnedNotification($user, $badgeName);
+        }
     }
 
     /**

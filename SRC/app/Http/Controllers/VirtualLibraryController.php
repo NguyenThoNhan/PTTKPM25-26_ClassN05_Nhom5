@@ -10,7 +10,7 @@ class VirtualLibraryController extends Controller
 {
     public function index(): View
     {
-        $books = Book::with('categories')->latest()->take(20)->get();
+        $books = Book::with('categories')->latest()->take(26)->get();
 
         return view('virtual-library.index', compact('books'));
     }

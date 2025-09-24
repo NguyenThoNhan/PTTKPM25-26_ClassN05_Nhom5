@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Book;
 use App\Models\Loan;
 use App\Events\BookReturned;
+use App\Services\NotificationService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Log;
@@ -143,6 +144,10 @@ class LoanController extends Controller
         
         // 5. Phát sự kiện để cộng điểm/trao huy hiệu
         BookReturned::dispatch($loan);
+        
+        // Send book returned notification
+        $notificationService = new NotificationService();
+        $notificationService->sendBookReturnedConfirmation($loan);
 
         // 6. Chuyển hướng người dùng với thông báo
         return redirect()->route('books.show', $book)->with('success', $integrityMessage);
