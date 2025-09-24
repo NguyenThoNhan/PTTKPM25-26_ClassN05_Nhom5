@@ -1,0 +1,20 @@
+{
+    "name": "BookHaven - Thư viện số",
+    "short_name": "BookHaven",
+    "description": "Hệ thống quản lý thư viện với chữ ký số và gamification",
+    "start_url": "/",
+    "display": "standalone",
+    "background_color": "#ffffff",
+    "theme_color": "#667eea",
+    "orientation": "portrait-primary",
+    "icons": [
+        {
+            "src": "/favicon.ico",
+            "sizes": "64x64 32x32 24x24 16x16",
+            "type": "image/x-icon"
+        }
+    ],
+    "categories": ["education", "books", "library"],
+    "lang": "vi",
+    "dir": "ltr"
+}
