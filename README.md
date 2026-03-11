@@ -7,13 +7,13 @@ Một dự án **ứng dụng web full-stack** được xây dựng trên nền 
 | **Nhóm**                 | **Nhóm 4**                           |
 | **Giảng viên hướng dẫn** | **Nguyễn Thị Vân**                                  |
 
-### **Thành viên Nhóm (Team Members)**
+### **Thành viên Nhóm**
 
-| **STT** | **Họ và Tên**          | **Mã Sinh Viên** |                      |
+| **STT** | **Họ và Tên**          | **Mã Sinh Viên** |
 |---------|------------------------|------------------|
-| 1       | Nguyễn Thọ Nhân        | 23010786         |  
-| 2       | Phạm Anh Thái          | 23010784         |   
-| 3       | Nguyễn Xuân Chức       | 23010452         | 
+| 1       | Nguyễn Thọ Nhân        | 23010786         |
+| 2       | Phạm Anh Thái          | 23010784         |
+| 3       | Nguyễn Xuân Chức       | 23010452         |
 
 ---
 
