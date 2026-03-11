@@ -1,12 +1,3 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
-
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
-
 # 🍽️ SmartDine - Hệ Thống Quản Lý Thực Đơn Nhà Hàng Thông Minh
 
 Một dự án **ứng dụng web full-stack** được xây dựng trên nền tảng **Node.js + MySQL**, mô phỏng hệ thống quản lý thực đơn nhà hàng thông minh hiện đại với trải nghiệm đặt món không tiếp xúc (QR Code), gợi ý món ăn, tự động ẩn món hết nguyên liệu và quản trị toàn diện.
