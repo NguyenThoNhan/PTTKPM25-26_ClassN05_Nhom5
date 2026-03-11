@@ -4,17 +4,16 @@ Một dự án **ứng dụng web full-stack** được xây dựng trên nền 
 
 | **Môn học**              | **Đồ án cơ sở**                                      |
 |--------------------------|-----------------------------------------------------|
-| **Nhóm**                 | **[Số nhóm - ví dụ: 12]**                           |
-| **Giảng viên hướng dẫn** | **Nguyễn Thị Văn**                                  |
+| **Nhóm**                 | **Nhóm 4**                           |
+| **Giảng viên hướng dẫn** | **Nguyễn Thị Vân**                                  |
 
 ### **Thành viên Nhóm (Team Members)**
 
-| **STT** | **Họ và Tên**          | **Mã Sinh Viên** | **Vai trò (Role)**                          |
-|---------|------------------------|------------------|---------------------------------------------|
-| 1       | [Họ tên thành viên 1]  | [MSSV]           | Team Leader, Backend Developer (Node.js)    |
-| 2       | [Họ tên thành viên 2]  | [MSSV]           | Frontend Developer, UI/UX Designer          |
-| 3       | [Họ tên thành viên 3]  | [MSSV]           | Database Engineer, Tester                   |
-| 4       | Nguyễn Xuân Chức       | [MSSV của bạn]   | Full-stack Developer, Document & Deployment |
+| **STT** | **Họ và Tên**          | **Mã Sinh Viên** |                      |
+|---------|------------------------|------------------|
+| 1       | Nguyễn Thọ Nhân        | 23010786         |  
+| 2       | Phạm Anh Thái          | 23010784         |   
+| 3       | Nguyễn Xuân Chức       | 23010452         | 
 
 ---
 
